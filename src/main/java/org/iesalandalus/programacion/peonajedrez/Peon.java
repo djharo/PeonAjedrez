@@ -105,6 +105,70 @@ public class Peon {
 		}
 	}
 	
+	public void mover(int movimiento) throws OperationNotSupportedException {
+		
+		switch (movimiento) {
+		
+			case 1:
+				try {
+					
+					if(Color.BLANCO.equals(this.color)){
+						
+						int nuevaFila = this.posicion.getFila() + 1;
+						
+						char nuevaColumna = this.posicion.getColumna();
+						
+						this.posicion = new Posicion(nuevaFila, nuevaColumna);
+					
+					} else {
+						
+						int nuevaFila = this.posicion.getFila() - 1;
+						
+						char nuevaColumna = this.posicion.getColumna();
+						
+						this.posicion = new Posicion(nuevaFila, nuevaColumna);
+					}
+					
+				} catch (IllegalArgumentException e) {
+					throw new OperationNotSupportedException("ERROR: Movimiento no válido.");
+				}
+				break;
+			
+			case 2:
+				try {
+					
+					if(Color.BLANCO.equals(this.color) && posicion.getFila() != 2
+							|| Color.NEGRO.equals(this.color) && posicion.getFila() != 7){
+						
+						throw new OperationNotSupportedException("ERROR: El peón sólo se puede mover 2 pasos cuando se encuentra en la casilla inicial.");
+					}
+					
+					if(Color.BLANCO.equals(this.color)){
+					
+					int nuevaFila = this.posicion.getFila() + 2;
+					
+					char nuevaColumna = this.posicion.getColumna();
+					
+					this.posicion = new Posicion(nuevaFila, nuevaColumna);
+					
+					} else {
+						
+						int nuevaFila = this.posicion.getFila() - 2;
+						
+						char nuevaColumna = this.posicion.getColumna();
+						
+						this.posicion = new Posicion(nuevaFila, nuevaColumna);
+					}
+				
+				} catch (IllegalArgumentException e) {
+					throw new OperationNotSupportedException("ERROR: Movimiento no válido.");
+				}
+				break;
+			default:
+				throw new OperationNotSupportedException("ERROR: El peón sólo se puede mover 1 o 2 pasos.");
+		}
+	}
+	
 	public Color getColor() {
 		return color;
 	}
