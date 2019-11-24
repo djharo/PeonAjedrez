@@ -41,6 +41,8 @@ public class Peon {
 		}
 	}
 	
+	
+	
 	public Color getColor() {
 		return color;
 	}
