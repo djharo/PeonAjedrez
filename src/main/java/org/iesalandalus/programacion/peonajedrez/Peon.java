@@ -50,6 +50,7 @@ public class Peon {
 		}
 
 		switch (direccion) {
+			
 			case IZQUIERDA:
 				try {
 					
@@ -74,6 +75,7 @@ public class Peon {
 					throw new OperationNotSupportedException("ERROR: Movimiento no válido.");
 				}
 				break;
+			
 			case DERECHA:
 				try {
 					
