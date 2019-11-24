@@ -5,12 +5,18 @@ public class Posicion {
 	private int fila;
 	
 	private char columna;
+	
+	public Posicion(int fila, char columna) {
+		
+		setFila(fila);
+		setColumna(columna);
+	}
 
 	public int getFila() {
 		return fila;
 	}
 
-	public void setFila(int fila) {
+	private void setFila(int fila) {
 		
 		if(fila < 1 || fila > 8) {
 			
@@ -26,7 +32,7 @@ public class Posicion {
 		return columna;
 	}
 
-	public void setColumna(char columna) {
+	private void setColumna(char columna) {
 		
 		if(columna < 'a' || columna > 'h') {
 				
@@ -35,6 +41,5 @@ public class Posicion {
 			
 			this.columna = columna;		
 		}	
-		
 	}
 }
