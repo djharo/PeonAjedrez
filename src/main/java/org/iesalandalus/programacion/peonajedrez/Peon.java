@@ -1,5 +1,7 @@
 package org.iesalandalus.programacion.peonajedrez;
 
+import javax.naming.OperationNotSupportedException;
+
 public class Peon {
 	
 	private Color color;
@@ -41,7 +43,65 @@ public class Peon {
 		}
 	}
 	
-	
+	public void mover(Direccion direccion) throws OperationNotSupportedException {
+		
+		if (direccion == null) {
+			throw new NullPointerException("ERROR: Mover el peón en una dirección nula no está permitido.");
+		}
+
+		switch (direccion) {
+			case IZQUIERDA:
+				try {
+					
+					if(Color.BLANCO.equals(this.color)){
+						
+						int nuevaFila = this.posicion.getFila() + 1;
+						
+						char nuevaColumna = (char) (this.posicion.getColumna() - 1);
+						
+						this.posicion = new Posicion(nuevaFila, nuevaColumna);
+					
+					} else {
+						
+						int nuevaFila = this.posicion.getFila() - 1;
+						
+						char nuevaColumna = (char) (this.posicion.getColumna() - 1);
+						
+						this.posicion = new Posicion(nuevaFila, nuevaColumna);
+					}
+					
+				} catch (IllegalArgumentException e) {
+					throw new OperationNotSupportedException("ERROR: Movimiento no válido.");
+				}
+				break;
+			case DERECHA:
+				try {
+					
+					if(Color.BLANCO.equals(this.color)){
+						
+						int nuevaFila = this.posicion.getFila() + 1;
+						
+						char nuevaColumna = (char) (this.posicion.getColumna() + 1);
+						
+						this.posicion = new Posicion(nuevaFila, nuevaColumna);
+					
+					} else {
+						
+						int nuevaFila = this.posicion.getFila() - 1;
+						
+						char nuevaColumna = (char) (this.posicion.getColumna() + 1);
+						
+						this.posicion = new Posicion(nuevaFila, nuevaColumna);
+					}
+				
+				} catch (IllegalArgumentException e) {
+					throw new OperationNotSupportedException("ERROR: Movimiento no válido.");
+				}
+				break;
+			default:
+				break;
+		}
+	}
 	
 	public Color getColor() {
 		return color;
