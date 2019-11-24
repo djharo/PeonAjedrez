@@ -17,7 +17,7 @@ public class Posicion {
 	public Posicion(Posicion posicion) {
 		
 		if (posicion == null) {
-			throw new IllegalArgumentException("ERROR: No es posible copiar una posición nula.");
+			throw new NullPointerException("ERROR: No es posible copiar una posición nula.");
 		}
 		this.fila = posicion.getFila();
 		this.columna = posicion.getColumna();
@@ -47,7 +47,7 @@ public class Posicion {
 		
 		if(columna < 'a' || columna > 'h') {
 				
-				throw new IllegalArgumentException ("ERROR: Fila no válida.");
+				throw new IllegalArgumentException ("ERROR: Columna no válida.");
 		} else {
 			
 			this.columna = columna;		
@@ -72,5 +72,10 @@ public class Posicion {
 		}
 		Posicion other = (Posicion) obj;
 		return columna == other.columna && fila == other.fila;
+	}
+
+	@Override
+	public String toString() {
+		return "fila=" + fila + ", columna=" + columna;
 	}
 }
