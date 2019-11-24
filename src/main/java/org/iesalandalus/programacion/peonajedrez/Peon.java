@@ -6,10 +6,26 @@ public class Peon {
 	
 	private Posicion posicion;
 	
-	public Peon () {
+	public Peon() {
 		
 		this.color = Color.NEGRO;
 		this.posicion = new Posicion (7, 'd');
+	}
+	
+	public Peon(Color color) {
+		
+		setColor(color);
+		
+		if(Color.BLANCO.equals(this.color)) {
+			
+			//this.color = color;
+			this.posicion = new Posicion(2, 'd');
+		
+		}else {
+			
+			//this.color = color;
+			this.posicion = new Posicion(7, 'd');
+		}
 	}
 	
 	public Color getColor() {
@@ -19,7 +35,7 @@ public class Peon {
 	public void setColor(Color color) {
 		
 		if (color == null) {
-			throw new IllegalArgumentException("ERROR: No se puede asignar un color nulo.");
+			throw new NullPointerException("ERROR: No se puede asignar un color nulo.");
 		}
 		
 		this.color = color;
