@@ -18,13 +18,26 @@ public class Peon {
 		
 		if(Color.BLANCO.equals(this.color)) {
 			
-			//this.color = color;
 			this.posicion = new Posicion(2, 'd');
 		
 		}else {
 			
-			//this.color = color;
 			this.posicion = new Posicion(7, 'd');
+		}
+	}
+	
+	public Peon(Color color, char columnaInicial) {
+		
+		setColor(color);
+		
+		if(Color.BLANCO.equals(this.color)) {
+			
+			this.posicion = new Posicion(2, columnaInicial);
+		
+		} else {
+		
+		this.posicion = new Posicion(7, columnaInicial);
+		
 		}
 	}
 	
