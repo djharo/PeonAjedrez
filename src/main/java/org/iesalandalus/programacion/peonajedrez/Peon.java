@@ -5,6 +5,8 @@ import java.util.Objects;
 import javax.naming.OperationNotSupportedException;
 
 public class Peon {
+	
+	public static Peon peon;
 
 	private Posicion posicion;
 
